@@ -1,0 +1,379 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f7fa;
+  overflow: hidden;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background-color: #fff;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.sidebar h3 {
+  font-size: 1.2em;
+  color: #202124;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: #5f6368;
+  font-size: 0.95em;
+}
+
+.sidebar li:hover {
+  background-color: #e8eaf6;
+}
+
+.sidebar li.draggable {
+  cursor: move;
+}
+
+/* Calendar Container */
+.calendar-container {
+  flex-grow: 1;
+  padding: 20px;
+  overflow: auto;
+}
+
+/* Remove any green background */
+.rbc-today {
+  background-color: transparent !important;
+}
+.rbc-now {
+  background-color: transparent !important;
+  color: #1a73e8 !important;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* React Big Calendar Styling */
+.rbc-calendar {
+  height: 90vh !important;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: auto;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.rbc-week-view {
+  min-width: 0;
+}
+.rbc-month-view,
+.rbc-week-view,
+.rbc-day-view {
+  padding: 10px;
+}
+
+.rbc-header {
+  background-color: #f1f3f4;
+  font-weight: 500;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #202124;
+}
+
+.rbc-day-bg,
+.rbc-off-range-bg {
+  border: 1px solid #ddd !important;
+  background-color: transparent !important;
+  min-height: 15px !important;
+}
+
+.rbc-time-slot {
+  border-top: none;
+  border-bottom: 1px solid #ccc;
+  height: 60px;
+}
+.rbc-timeslot-group {
+  display: flex;
+  align-items: flex-end;
+}
+
+.rbc-time-content > .rbc-time-gutter {
+  min-height: 15px !important;
+}
+
+.rbc-day-slot .rbc-events-container {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+/* Event Styling */
+.rbc-event {
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: move;
+  font-size: 0.85em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin: 0;
+  border: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  touch-action: none;
+  user-select: none;
+  background-color: inherit; /* Rely on eventPropGetter */
+  color: #000;
+}
+
+.rbc-event:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.rbc-event-content {
+  width: 100%;
+}
+
+.rbc-event-label {
+  margin-right: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Delete Button Styling */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #e57373;
+  cursor: pointer;
+  font-size: 0.9em;
+  padding: 0 5px;
+  transition: color 0.3s;
+}
+
+.delete-btn:hover {
+  color: #ef5350;
+}
+
+/* Modal Styling */
+.react-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: none;
+  z-index: 1000;
+}
+
+.react-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-modal-content h2 {
+  font-size: 1.5em;
+  color: #202124;
+  margin-bottom: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.react-modal-content h2::before {
+  content: "+";
+  margin-right: 8px;
+  font-weight: 700;
+  color: #6890cf;
+}
+
+.react-modal-content .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  color: #5f6368;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.react-modal-content .close-btn:hover {
+  color: #202124;
+}
+
+.react-modal-content label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #5f6368;
+  font-size: 0.95em;
+}
+
+.react-modal-content input,
+.react-modal-content select {
+  width: 100%;
+  padding: 10px 12px 10px 36px;
+  margin-bottom: 15px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  font-size: 1em;
+  background-color: #fff;
+  transition: border-color 0.3s;
+  position: relative;
+}
+
+.react-modal-content input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.react-modal-content input:focus,
+.react-modal-content select:focus {
+  border-color: #4285f4;
+  outline: none;
+}
+
+.react-modal-content .input-group {
+  position: relative;
+}
+
+.react-modal-content .input-group i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #5f6368;
+  font-size: 1em;
+}
+
+.react-modal-content input.with-icon,
+.react-modal-content select.with-icon {
+  padding-left: 36px;
+}
+
+.react-modal-content button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.react-modal-content button[type="submit"] {
+  background-color: #4285f4;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.react-modal-content button[type="submit"]:hover {
+  background-color: #3267d6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.react-modal-content button[type="button"] {
+  background-color: #dadce0;
+  color: #202124;
+  border-radius: 20px;
+}
+
+.react-modal-content button[type="button"]:hover {
+  background-color: #bdc1c6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure Modal is accessible */
+.react-modal-content:focus {
+  outline: none;
+}
+
+/* Sidebar List Styling */
+.goal-list,
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.goal-item,
+.task-item {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  color: #202124;
+  font-size: 0.95em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.goal-item:hover,
+.task-item:hover {
+  transform: scale(1.02);
+}
+
+.selected {
+  border: 2px solid #000;
+  font-weight: 500;
+}
+
+/* Sidebar Icon Styling */
+.sidebar-icon {
+  font-size: 1em;
+  color: #202124;
+}
+
+/* Ensure consistent width and alignment */
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background-color: #fff;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  height: 100vh;
+}
+.rbc-agenda-date-cell {
+  background-color: #a9a9a9 !important;
+}
